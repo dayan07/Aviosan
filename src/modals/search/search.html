@@ -1,0 +1,42 @@
+<ion-header>
+  <header-component [showCloseButton]="true"></header-component>
+</ion-header>
+
+<ion-content>
+  <p> Choose the direction and dates of the flight </p>
+  <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Type the host country" name="startPoint"
+                   [(ngModel)]="searchParams.startPoint" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Type the destination country" name="endPoint"
+                   [(ngModel)]="searchParams.endPoint" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-datetime mode="ios" class="date" min="1900" max="2100-12-31" class="date" placeholder="Type the start date" name="startDate" displayFormat="DD/MM/YYYY"
+                      [(ngModel)]="searchParams.startDate"></ion-datetime>
+        <button ion-button clear type="button" item-right>
+          <ion-icon class="custom-calendar"> </ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item>
+        <ion-datetime mode="ios" class="date" min="1900" max="2100-12-31" class="date" placeholder="Type the end date" name="endDate" displayFormat="DD/MM/YYYY"
+                      [(ngModel)]="searchParams.endDate"></ion-datetime>
+        <button ion-button clear type="button" item-right>
+          <ion-icon class="custom-calendar"> </ion-icon>
+        </button>
+      </ion-item>
+
+    </ion-list>
+    <div class="buttons">
+      <button class="login" type="submit"  full ion-button>To shedule</button>
+
+    </div>
+  </form>
+
+</ion-content>
+
+

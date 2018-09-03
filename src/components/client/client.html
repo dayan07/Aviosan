@@ -1,0 +1,68 @@
+<ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="Type your first name" name="firstName"
+                 [(ngModel)]="client.firstName" disabled="{{existClient}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Type your last name" name="lastName"
+                 [(ngModel)]="client.lastName" disabled="{{existClient}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime class="date" min="1900" class="date" placeholder="Type your date of birth" name="dateOfBirth" displayFormat="DD/MM/YYYY"
+                    [(ngModel)]="client.dateOfBirth" disabled="{{existClient}}"></ion-datetime>
+      <button ion-button clear type="button" item-right>
+        <ion-icon class="custom-calendar"> </ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Type your passport number" name="passportNumber"
+                 [(ngModel)]="client.passportNumber" disabled="{{existClient}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime mode="ios" class="date" min="1900" class="date" placeholder="Date of issue" name="dateOfIssue" displayFormat="DD/MM/YYYY"
+                    [(ngModel)]="client.dateOfIssue" disabled="{{existClient}}"></ion-datetime>
+      <button ion-button clear type="button" item-right>
+        <ion-icon class="custom-calendar"> </ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item>
+      <ion-datetime mode="ios" class="date" min="2018-08-23" max="2100-12-31" class="date" placeholder="Expiry date" name="expiryDate" displayFormat="DD/MM/YYYY"
+                    [(ngModel)]="client.expiryDate" disabled="{{existClient}}"></ion-datetime>
+      <button ion-button clear type="button" item-right>
+        <ion-icon class="custom-calendar"> </ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-input type="email" placeholder="Type your E-mail" name="email"
+                 [(ngModel)]="client.email" required email
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$" disabled="{{existClient}}">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="tel"
+                 pattern="\d*"
+                 phone-number-mask="+***(**)***-**-**"
+                 placeholder="Type your Phone Number" name="phoneNumber"
+                 [(ngModel)]="client.phoneNumber"
+                 minlength="12"
+                 maxlength="17"
+      disabled="{{existClient}}">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Select seat please</ion-label>
+      <ion-select class="date" placeholder="Your seat" [(ngModel)]="client.selectedSeatId">
+        <ion-option *ngFor="let seat of seatList" [value]="seat.id">
+          {{seat.levelClass+'\n'+ seat.row +'\n'+ seat.number}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+

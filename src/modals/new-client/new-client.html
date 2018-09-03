@@ -1,0 +1,23 @@
+<ion-header>
+  <header-component [showCloseButton]="true"></header-component>
+</ion-header>
+
+
+<ion-content padding >
+  <p class="title"> Add a new client </p>
+  <form #newClientForm="ngForm" (ngSubmit)="onSubmit(newClientForm)">
+
+    <client-component [client]="client"
+                      [seatList]="seatList"
+                      [existClient]="false"></client-component>
+
+    <div>
+      <button type="submit" full ion-button >Add new client</button>
+    </div>
+
+  </form>
+
+
+
+</ion-content>
+

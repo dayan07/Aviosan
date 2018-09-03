@@ -1,0 +1,25 @@
+<ion-navbar>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button mode="ios" *ngIf="!showCloseButton" ion-button icon-only (click)="goToSignInPage()">
+        <ion-icon class="custom-sign-in"></ion-icon>
+      </button>
+      <button *ngIf="showCloseButton" ion-button icon-only (click)="signInPageDismiss()">
+        Close
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <img alt="logo" src="assets/imgs/logo11.png">
+    </ion-title>
+
+    <ion-buttons right>
+      <button mode="ios" *ngIf="isHomePage" ion-button icon-only (click)="search()">
+        <ion-icon class="custom-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-navbar>
+
+

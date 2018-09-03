@@ -1,0 +1,34 @@
+page-login {
+  .scroll-content {
+    background-color: #2c3b4e;
+    padding-top: 15vh;
+    p {
+      color: #f4f4f4;
+      text-align: center;
+      font-size: 1.3em;
+    }
+    .login {
+      margin: 5px 0;
+      background-color: #3995d4;
+    }
+
+    ion-list{
+      margin-top: 2vh;
+      padding-left: 6vh;
+      padding-right: 6vh;
+    }
+
+    .buttons {
+      padding-left: 6vh;
+      padding-right: 6vh;
+      .signUpBtn {
+        margin: 15px 0;
+        text-align: center;
+        a {
+          display: inline-block;
+          color: #f4f4f4;
+        }
+      }
+    }
+  }
+}

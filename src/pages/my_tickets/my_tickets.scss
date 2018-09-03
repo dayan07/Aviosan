@@ -1,0 +1,27 @@
+ion-content{
+  .fixed-content{
+    background-color: #ecf0f1;
+  }
+
+}
+.tabbar{
+  background-color: #ecf0f1 !important;
+}
+
+my_tickets {
+
+  .row-flight {
+    display: -webkit-inline-box;
+    height: 4vh;
+    font-size: 2.2vh;
+    font-weight: 400;
+    flex-wrap: wrap;
+    .flight-item{
+      padding: 8px;
+    }
+
+  }
+
+
+
+}

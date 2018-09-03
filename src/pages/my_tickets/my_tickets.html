@@ -1,0 +1,17 @@
+<ion-header>
+  <header-component #header [title]="'My tickets'" [isAuth]="isAuth"></header-component>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="isAuth">
+    <ion-item *ngFor="let ticket of myTickets">
+      <div class="row-flight">
+        <div class="flight-item">{{ticket.flightDate | date: 'MM/dd/yyyy' }}</div>
+        <div class="flight-item">{{ticket.flightName  }}</div>
+        <div class="flight-item">{{ticket.seatRow + ticket.seatNumber}}</div>
+        <div class="flight-item">{{ticket.seatLevelClass }}</div>
+        <div class="flight-item">{{ticket.cost}}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

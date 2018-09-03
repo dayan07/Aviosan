@@ -1,0 +1,49 @@
+<ion-header>
+  <header-component [showCloseButton]="true"></header-component>
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #saveTicketForm="ngForm">
+    <p class="title"> Order a tickets </p>
+
+        <p>Flight name: {{flight.name}}</p>
+        <p>Flight date: {{flight.date}}</p>
+        <p *ngIf="flight.startPoint">Flight route: {{flight.startPoint}}-{{flight.endPoint}}</p>
+        <p *ngIf="!flight.startPoint">Flight route: {{flight.route.startPoint}}-{{flight.route.endPoint}}</p>
+    <ion-list>
+      <ion-item>
+        <ion-label>Select client please</ion-label>
+        <ion-select class="date" placeholder="Existing clients" [(ngModel)]="selectedClients" name="selectedClients"  multiple="true">
+          <ion-option *ngFor="let client of clientList" [value]="client">{{client.firstName +'\n'+ client.lastName}}</ion-option>
+        </ion-select>
+
+      </ion-item>
+
+      <div *ngIf="selectedClients.length > 0">
+        <ion-list>
+            <div *ngFor="let selectedClient of selectedClients"  class="full-width">
+              <client-component [client]="selectedClient"
+                                [seatList]="seatList"
+                                [existClient]="true"></client-component>
+              <div>
+                <p *ngIf="selectedClients.length > 0">Cost ticket: ${{cost}}</p>
+              </div>
+            </div>
+        </ion-list>
+      </div>
+
+        <p *ngIf="selectedClients.length > 0">General cost: ${{cost*selectedClients.length}}</p>
+
+      <button class="btn" full ion-button (click)="addClient()">Add new client</button>
+    </ion-list>
+
+    <div>
+      <button class="btn"  type="submit" full ion-button (click)="onSubmit(saveTicketForm)">Save my tickets</button>
+    </div>
+
+  </form>
+
+</ion-content>
+

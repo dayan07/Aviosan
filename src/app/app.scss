@@ -14,3 +14,42 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-icon {
+  &[class*="custom-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  // custom icons
+  &[class*="custom-home"] {
+    mask-image: url(../assets/imgs/schedule_1.png);
+  }
+  &[class*="custom-tickets"] {
+    mask-image: url(../assets/imgs/my_tickets1.png);
+  }
+  &[class*="custom-map"] {
+    mask-image: url(../assets/imgs/call_taxi.png);
+  }
+
+  &[class*="custom-sign-in"] {
+    mask-image: url(../assets/imgs/sign_in.png);
+  }
+  &[class*="custom-search"] {
+    mask-image: url(../assets/imgs/search.png);
+  }
+  &[class*="custom-calendar"] {
+    mask-image: url(../assets/imgs/calendar_1.png);
+  }
+  &[class*="custom-email"] {
+    mask-image: url(../assets/imgs/envelope.png);
+  }
+  &[class*="custom-password"] {
+    mask-image: url(../assets/imgs/castle.png);
+  }
+
+}
