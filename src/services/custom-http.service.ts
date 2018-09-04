@@ -84,7 +84,7 @@ export class CustomHttpService {
 
     for (let key in headers) {
       let value: string = headers[key];
-      this.nativeHttp.setHeader(null, key, value);
+      this.nativeHttp.setHeader(key, value);
     }
 
     this.nativeHttp.acceptAllCerts(true);
@@ -97,6 +97,7 @@ export class CustomHttpService {
         return Promise.reject(new CustomHttpResponse(res));
       });
   }
+
 
   private nativePatchReq(url: string, body: any): Promise<CustomHttpResponse> {
     this.nativeHttp.setDataSerializer('json');
