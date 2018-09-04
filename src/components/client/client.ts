@@ -3,6 +3,7 @@ import { ModalController, NavController, AlertController} from 'ionic-angular';
 import "rxjs/add/observable/merge";
 import {AuthService} from "../../services/auth.service";
 import {Client} from "../../entities/client";
+import {UtilsService} from "../../services/utils.service";
 
 @Component({
   selector: 'client-component',
@@ -16,6 +17,7 @@ export class ClientComponent implements OnInit {
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
+              private utilsService: UtilsService,
               private alertCtrl: AlertController,
               private authService: AuthService) {
   }
@@ -28,24 +30,8 @@ export class ClientComponent implements OnInit {
 
   private init() {
     let today = new Date();
-    let dd = today.getDate();
+    this.today = this.utilsService.dateConverter(today);
 
-    let mm = today.getMonth()+1;
-    let yyyy = today.getFullYear();
-    let mmStr;
-    let ddStr;
-    let todayStr;
-    if(dd<10)
-    {
-      ddStr='0'+dd;
-    }
-
-    if(mm<10)
-    {
-      mmStr='0'+mm;
-    }
-    todayStr = yyyy+'-'+mmStr+'-'+ddStr;
-    this.today = todayStr;
   }
 }
 

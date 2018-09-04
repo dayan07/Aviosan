@@ -7,6 +7,7 @@ import {UserInfo} from "../../entities/userInfo";
 import {NotifierService} from "../../services/notifier.service";
 import {AuthService} from "../../services/auth.service";
 import {Client} from "../../entities/client";
+import {UtilsService} from "../../services/utils.service";
 
 
 @Component({
@@ -29,37 +30,16 @@ export class SignUpPage {
               public loadingCtrl: LoadingController,
               public navParams: NavParams,
               private notifierService: NotifierService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private utilsService: UtilsService) {
     this.myUser = new Client(null, null, null, null, null, null, null, null, null);
 
   };
 
   ionViewWillEnter() {
     let today = new Date();
-    let dd = today.getDate();
+    this.today = this.utilsService.dateConverter(today);
 
-    let mm = today.getMonth()+1;
-    let yyyy = today.getFullYear();
-    let todayStr;
-    let mmStr;
-    let ddStr;
-    if(dd<10)
-    {
-      ddStr='0'+dd;
-    }
-
-    if(mm<10)
-    {
-      mmStr='0'+mm;
-    }
-    todayStr = yyyy+'-'+mm+'-'+dd;
-    this.today = todayStr;
-
-
-    // if (this.ga) {
-    //   this.ga.trackView('Login Page');
-    // }
-    // this.viewCtrl.showBackButton(false);
   }
 
   onSubmit(form: NgForm) {
@@ -128,27 +108,7 @@ export class SignUpPage {
       .then(value => {
         this.presentInformationToast('User has been created successfully.');
         this.viewCtrl.dismiss({authorizationCompleted: true});
-        // if (value.errorCode === "4346") {
-        //   this.presentInformationToast('The phone number you\'ve provided is already registered ' +
-        //     'for Dollar General\'s Digital Coupon service');
-        //   return;
-        // }
-        // if (value.errorCode === "5036") {
-        //   this.presentInformationToast('That phone number could not be accepted at this time. ' +
-        //     'Please use another mobile phone number or contact us for assistance.');
-        //   return;
-        // }
-        //
-        // if (value.errorCode === "4348" || value.errorCode !== undefined) {
-        //   this.presentInformationToast('Sign up could not be completed. Please try again.');
-        //   return;
-        // }
-        //
-        // if (value.information && value.information.message == "Authcode has been sent successfully") {
-        //   this.navCtrl.push(PhoneNumberValidation, {
-        //     myUser: this.myUser
-        //   });
-        // }
+
       })
   }
 

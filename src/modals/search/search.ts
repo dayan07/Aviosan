@@ -30,10 +30,7 @@ export class SearchPage {
   };
 
   ionViewWillEnter() {
-    // if (this.ga) {
-    //   this.ga.trackView('Login Page');
-    // }
-    // this.viewCtrl.showBackButton(false);
+
   }
 
   onSubmit(form: NgForm) {

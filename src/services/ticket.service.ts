@@ -70,7 +70,6 @@ export class TicketService {
           };
           body.push(temp);
         });
-        //let body = {tickets:arrTickets};
         return this.customHttpService.post(url, body)
           .then(res => {
             return res.json();
